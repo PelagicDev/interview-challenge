@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
 
-const MovieCard = ({ movie }) => (
+const MovieCard = ({ title, onOpen }) => (
   <Box
     maxW="sm"
     borderWidth="1px"
@@ -9,8 +9,10 @@ const MovieCard = ({ movie }) => (
     overflow="hidden"
     padding={3}
     borderColor="gray.600"
+    bg="white"
+    onClick={onOpen}
   >
-    <Text>{movie.title}</Text>
+    <Text>{title}</Text>
   </Box>
 )
 
