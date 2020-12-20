@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Box, Container, Heading, SimpleGrid } from '@chakra-ui/react'
+import React from 'react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 
-import * as routes from './lib/routes'
-
-import MovieCard from './components/MovieCard'
+import MovieList from './components/MovieList'
 
 function App() {
-  const [movies, setMovies] = useState([])
-
-  useEffect(() => {
-    fetch(routes.MOVIES)
-      .then((res) => res.json())
-      .then((result) => {
-        setMovies(result)
-      })
-  }, [])
-
   return (
-    <Box bg="gray.300">
+    <Box bg="gray.300" h="100vh">
       <Container maxW="6xl" centerContent>
         <PageHeader />
-        <SimpleGrid columns={3} spacing={5} padding={5}>
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </SimpleGrid>
+
+        <MovieList />
       </Container>
     </Box>
   )
